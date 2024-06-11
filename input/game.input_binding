@@ -1,0 +1,188 @@
+key_trigger {
+  input: KEY_SPACE
+  action: "space"
+}
+key_trigger {
+  input: KEY_TAB
+  action: "tab"
+}
+key_trigger {
+  input: KEY_LEFT
+  action: "btn_left"
+}
+key_trigger {
+  input: KEY_RIGHT
+  action: "btn_right"
+}
+key_trigger {
+  input: KEY_UP
+  action: "btn_up"
+}
+key_trigger {
+  input: KEY_DOWN
+  action: "btn_down"
+}
+key_trigger {
+  input: KEY_W
+  action: "btn_up"
+}
+key_trigger {
+  input: KEY_S
+  action: "btn_down"
+}
+key_trigger {
+  input: KEY_A
+  action: "btn_left"
+}
+key_trigger {
+  input: KEY_D
+  action: "btn_right"
+}
+key_trigger {
+  input: KEY_ESC
+  action: "btn_esc"
+}
+key_trigger {
+  input: KEY_F12
+  action: "btn_toggle_screen"
+}
+key_trigger {
+  input: KEY_1
+  action: "1"
+}
+key_trigger {
+  input: KEY_2
+  action: "2"
+}
+key_trigger {
+  input: KEY_KP_1
+  action: "num1"
+}
+key_trigger {
+  input: KEY_KP_2
+  action: "num2"
+}
+key_trigger {
+  input: KEY_KP_3
+  action: "num3"
+}
+key_trigger {
+  input: KEY_KP_4
+  action: "num4"
+}
+key_trigger {
+  input: KEY_KP_5
+  action: "num5"
+}
+key_trigger {
+  input: KEY_KP_6
+  action: "num6"
+}
+key_trigger {
+  input: KEY_KP_7
+  action: "num7"
+}
+key_trigger {
+  input: KEY_F7
+  action: "f7"
+}
+key_trigger {
+  input: KEY_F6
+  action: "f6"
+}
+key_trigger {
+  input: KEY_LCTRL
+  action: "left_ctrl"
+}
+key_trigger {
+  input: KEY_F5
+  action: "f5"
+}
+key_trigger {
+  input: KEY_3
+  action: "3"
+}
+key_trigger {
+  input: KEY_SPACE
+  action: ""
+}
+key_trigger {
+  input: KEY_F1
+  action: "f1"
+}
+key_trigger {
+  input: KEY_RIGHT
+  action: "right_arrow"
+}
+key_trigger {
+  input: KEY_LEFT
+  action: "left_arrow"
+}
+key_trigger {
+  input: KEY_BACKSPACE
+  action: "key_backspace"
+}
+key_trigger {
+  input: KEY_C
+  action: "c_button"
+}
+key_trigger {
+  input: KEY_V
+  action: "v_button"
+}
+key_trigger {
+  input: KEY_LALT
+  action: "left_alt"
+}
+key_trigger {
+  input: KEY_RALT
+  action: "right_alt"
+}
+key_trigger {
+  input: KEY_F4
+  action: "f4"
+}
+key_trigger {
+  input: KEY_F2
+  action: "f2"
+}
+key_trigger {
+  input: KEY_T
+  action: "T"
+}
+key_trigger {
+  input: KEY_BACKSPACE
+  action: "backspace"
+}
+key_trigger {
+  input: KEY_DEL
+  action: "delete"
+}
+key_trigger {
+  input: KEY_LSUPER
+  action: "left_ctrl"
+}
+mouse_trigger {
+  input: MOUSE_BUTTON_LEFT
+  action: "touch"
+}
+mouse_trigger {
+  input: MOUSE_BUTTON_RIGHT
+  action: "touchR"
+}
+mouse_trigger {
+  input: MOUSE_WHEEL_UP
+  action: "mouse_wheel_up"
+}
+mouse_trigger {
+  input: MOUSE_WHEEL_DOWN
+  action: "mouse_wheel_down"
+}
+touch_trigger {
+  input: TOUCH_MULTI
+  action: "touch_multi"
+}
+text_trigger {
+  input: TEXT
+  action: "text"
+}
