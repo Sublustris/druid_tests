@@ -403,16 +403,22 @@ end
 -- @tparam table nodes Nodes table from gui.clone_tree
 function RichInput.init(self, template, nodes)
 	
-	self:set_template(template)
+	if template then self:set_template(template) end
 	self:set_nodes(nodes)
 	self.druid = self:get_druid()
 	self.input = self.druid:new_input(self:get_node(SCHEME.BUTTON), self:get_node(SCHEME.INPUT))
-	self.cursor = self:get_node(SCHEME.CURSOR)
-	self.highlight = self:get_node(SCHEME.HIGHLIGHT) 
-	
 	self.placeholder = self.druid:new_text(self:get_node(SCHEME.PLACEHOLDER))
 	self.text = self.druid:new_text(self:get_node(SCHEME.INPUT))
 
+	self.cursor_width, self.cursor_height = self.text:get_text_size("|")	
+	self.cursor = gui.new_box_node(vmath.vector3(0), vmath.vector3(2, self.cursor_height,0))  -- self:get_node(SCHEME.CURSOR)
+	gui.set_parent(self.cursor, self:get_node(SCHEME.INPUT))
+	
+	self.highlight = gui.new_box_node(vmath.vector3(0), vmath.vector3(self.cursor_width, self.cursor_height,0)) -- self:get_node(SCHEME.HIGHLIGHT) 	
+	gui.set_parent(self.highlight, self:get_node(SCHEME.INPUT))
+	gui.set_enabled(self.highlight, false)
+	gui.set_color(self.highlight, vmath.vector4(0.3,0.5,0.7,0.5))
+	
 	self.input.on_input_text:subscribe(update_text)
 	self.input.on_input_select:subscribe(on_select)
 	self.input.on_input_unselect:subscribe(on_unselect)
@@ -427,7 +433,7 @@ function RichInput.init(self, template, nodes)
 	self.action_pos_x = nil
 	self.action_pos_y = nil
 
-	self.cursor_width, self.cursor_height = self.text:get_text_size("|")
+	
 	
 	self.half_cursor_height = self.cursor_height/2
 
@@ -495,7 +501,7 @@ function RichInput.on_input(self, action_id, action)
 				end
 				--print ("qq2d", deleting_symbol)
 			end
-			return true
+			--return true  --закомментил, ибо сранно себя ведёт
 		end
 		
 		if action_id == const.ACTION_LEFT and  (action.pressed or action.repeated)  then

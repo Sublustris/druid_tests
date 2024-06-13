@@ -8,7 +8,8 @@ function init(self)
 	druid_instance = druid.new(self)
 	druid.register("input", input)
 	
-	self.text_input = druid_instance:new(rich_input, "basic_template")
+	self.text_input2 = druid_instance:new(rich_input, "simple_template")
+	self.text_input1 = druid_instance:new(rich_input, "basic_template")
 end
 
 function final(self)
