@@ -27,12 +27,12 @@ local utf8 = require("druid.system.utf8")
 local RichInput = component.create("druid.rich_input")
 
 local SCHEME = {
-	ROOT = "root",
+	--ROOT = "root",
 	BUTTON = "button",
-	PLACEHOLDER = "placeholder_text",
+	--PLACEHOLDER = "placeholder_text",
 	INPUT = "input_text",
-	CURSOR = "cursor_node",
-	HIGHLIGHT = "highlight_node",
+	--CURSOR = "cursor_node",
+	--HIGHLIGHT = "highlight_node",
 }
 
 local function find_cursor_pos(self, pivot, full_text, touch_delta_x, touch_delta_y, cur_letter_index)
@@ -366,7 +366,8 @@ local function on_select(self)
 	self.input.cursor_letter_index = utf8.len(self.input:get_text()) or 0
 	gui.set_enabled(self.cursor, true)
 	gui.set_enabled(self.highlight, false)
-	gui.set_enabled(self.placeholder.node, false)
+	gui.set_enabled(self.placeholder, false)
+	--gui.set_enabled(self.placeholder.node, false)
 	animate_cursor(self)
 end
 
@@ -375,7 +376,8 @@ local function on_unselect(self)
 	
 	gui.set_enabled(self.cursor, false)
 	gui.set_enabled(self.highlight, false)
-	gui.set_enabled(self.placeholder.node, true and #self.input:get_text() == 0)
+	gui.set_enabled(self.placeholder, true and #self.input:get_text() == 0)
+	--gui.set_enabled(self.placeholder.node, true and #self.input:get_text() == 0)
 end
 
 
@@ -402,15 +404,18 @@ end
 -- @tparam string template The template string name
 -- @tparam table nodes Nodes table from gui.clone_tree
 function RichInput.init(self, template, nodes)
-	
 	if template then self:set_template(template) end
 	self:set_nodes(nodes)
 	self.druid = self:get_druid()
 	self.input = self.druid:new_input(self:get_node(SCHEME.BUTTON), self:get_node(SCHEME.INPUT))
-	self.placeholder = self.druid:new_text(self:get_node(SCHEME.PLACEHOLDER))
+	self.placeholder = gui.new_text_node(vmath.vector3(0), "qweeqweqwe") -- self:get_node(SCHEME.PLACEHOLDER)
+	gui.set_parent(self.placeholder, self:get_node(SCHEME.BUTTON))
+	gui.set_color(self.placeholder, vmath.vector4(1.0, 1.0, 1.0, 0.5))
+	
+	--self.placeholder = self.druid:new_text(self:get_node(SCHEME.PLACEHOLDER))
 	self.text = self.druid:new_text(self:get_node(SCHEME.INPUT))
 
-	self.cursor_width, self.cursor_height = self.text:get_text_size("|")	
+	self.cursor_width, self.cursor_height = self.text:get_text_size("|")
 	self.cursor = gui.new_box_node(vmath.vector3(0), vmath.vector3(2, self.cursor_height,0))  -- self:get_node(SCHEME.CURSOR)
 	gui.set_parent(self.cursor, self:get_node(SCHEME.INPUT))
 	

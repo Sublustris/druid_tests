@@ -11,8 +11,8 @@ background_color {
 }
 nodes {
   position {
-    x: 335.0
-    y: 229.0
+    x: 341.0
+    y: 204.0
     z: 0.0
     w: 1.0
   }
@@ -29,21 +29,21 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 250.0
+    y: 40.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.902
-    y: 0.902
-    z: 0.8
+    x: 0.302
+    y: 0.302
+    z: 0.302
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "box"
+  id: "box_01"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -61,7 +61,7 @@ nodes {
   clipping_inverted: false
   alpha: 1.0
   template_node_child: false
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
   custom_type: 0
   enabled: true
   visible: true
@@ -69,8 +69,8 @@ nodes {
 }
 nodes {
   position {
-    x: -100.0
-    y: 50.0
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -87,25 +87,25 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 250.0
+    y: 40.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.2
-    y: 0.2
-    z: 0.2
+    x: 0.902
+    y: 0.902
+    z: 0.902
     w: 1.0
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "<text>"
   font: "default"
-  id: "text"
+  id: "text_01"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_NW
+  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -120,7 +120,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "box"
+  parent: "box_01"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -136,8 +136,8 @@ nodes {
 }
 nodes {
   position {
-    x: 334.0
-    y: 386.0
+    x: 343.0
+    y: 372.0
     z: 0.0
     w: 1.0
   }
@@ -166,7 +166,7 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "basic_template"
+  id: "full_template"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -209,12 +209,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "basic_template/root"
+  id: "full_template/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "basic_template"
+  parent: "full_template"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -268,12 +268,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "basic_template/button"
+  id: "full_template/button"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "basic_template/root"
+  parent: "full_template/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -328,7 +328,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "Placeholder"
   font: "buttons"
-  id: "basic_template/placeholder_text"
+  id: "full_template/placeholder_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -346,7 +346,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "basic_template/button"
+  parent: "full_template/button"
   layer: ""
   inherit_alpha: false
   alpha: 0.59
@@ -395,7 +395,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "User input"
   font: "buttons"
-  id: "basic_template/input_text"
+  id: "full_template/input_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -413,7 +413,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "basic_template/button"
+  parent: "full_template/button"
   layer: ""
   inherit_alpha: false
   alpha: 1.0
@@ -461,12 +461,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "basic_template/cursor_node"
+  id: "full_template/cursor_node"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "basic_template/input_text"
+  parent: "full_template/input_text"
   layer: ""
   inherit_alpha: false
   slice9 {
@@ -521,7 +521,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "|"
   font: "buttons"
-  id: "basic_template/cursor_text"
+  id: "full_template/cursor_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -539,7 +539,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "basic_template/cursor_node"
+  parent: "full_template/cursor_node"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -587,12 +587,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "basic_template/highlight_node"
+  id: "full_template/highlight_node"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "basic_template/input_text"
+  parent: "full_template/input_text"
   layer: ""
   inherit_alpha: false
   slice9 {
@@ -681,7 +681,7 @@ nodes {
 nodes {
   position {
     x: 341.0
-    y: 317.0
+    y: 289.0
     z: 0.0
     w: 1.0
   }
@@ -832,73 +832,6 @@ nodes {
   alpha: 1.0
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-  enabled: true
-  visible: true
-  material: ""
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 250.0
-    y: 40.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.9490196
-    y: 0.9490196
-    z: 0.9490196
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Placeholder"
-  font: "buttons"
-  id: "simple_template/placeholder_text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 0.4
-    y: 0.4
-    z: 0.4
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "simple_template/button"
-  layer: ""
-  inherit_alpha: false
-  alpha: 0.59
-  outline_alpha: 0.0
-  shadow_alpha: 0.0
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
   custom_type: 0
   enabled: true
   visible: true
