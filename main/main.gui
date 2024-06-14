@@ -137,7 +137,7 @@ nodes {
 nodes {
   position {
     x: 343.0
-    y: 419.0
+    y: 522.0
     z: 0.0
     w: 1.0
   }
@@ -889,7 +889,7 @@ nodes {
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
-  line_break: true
+  line_break: false
   parent: "simple_template/button"
   layer: ""
   inherit_alpha: false

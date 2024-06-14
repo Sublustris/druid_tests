@@ -334,8 +334,8 @@ local function update_text(self)
 	local text_width = self.input.total_width
 	local text_height = self.input.text_height
 	--gui.set_scale(self.cursor, self.input.text.scale)
-	gui.set_size(self.highlight, vmath.vector3(text_width, text_height, 0))
 	self.cursor_width, self.cursor_height = self.text:get_text_size("|") 
+	gui.set_size(self.highlight, vmath.vector3(text_width+self.cursor_width, text_height, 0))
 	self.half_cursor_height = self.cursor_height/2
 	
 	set_cursor(self)
@@ -408,8 +408,10 @@ function RichInput.init(self, template, nodes)
 	self:set_nodes(nodes)
 	self.druid = self:get_druid()
 	self.input = self.druid:new_input(self:get_node(SCHEME.BUTTON), self:get_node(SCHEME.INPUT))
-	self.placeholder = gui.new_text_node(vmath.vector3(0), "qweeqweqwe") -- self:get_node(SCHEME.PLACEHOLDER)
-	gui.set_parent(self.placeholder, self:get_node(SCHEME.BUTTON))
+	--плейсхолдер инициализируем пустым текстом
+	self.placeholder = gui.new_text_node(vmath.vector3(0), " ") -- self:get_node(SCHEME.PLACEHOLDER)
+	gui.set_id(self.placeholder, "placeholder_text")
+	gui.set_parent(self.placeholder, self:get_node(SCHEME.INPUT))
 	gui.set_color(self.placeholder, vmath.vector4(1.0, 1.0, 1.0, 0.5))
 	
 	--self.placeholder = self.druid:new_text(self:get_node(SCHEME.PLACEHOLDER))
@@ -417,9 +419,11 @@ function RichInput.init(self, template, nodes)
 
 	self.cursor_width, self.cursor_height = self.text:get_text_size("|")
 	self.cursor = gui.new_box_node(vmath.vector3(0), vmath.vector3(2, self.cursor_height,0))  -- self:get_node(SCHEME.CURSOR)
+	gui.set_id(self.cursor, "cursor_node")
 	gui.set_parent(self.cursor, self:get_node(SCHEME.INPUT))
 	
 	self.highlight = gui.new_box_node(vmath.vector3(0), vmath.vector3(self.cursor_width, self.cursor_height,0)) -- self:get_node(SCHEME.HIGHLIGHT) 	
+	gui.set_id(self.highlight, "highlight_node")
 	gui.set_parent(self.highlight, self:get_node(SCHEME.INPUT))
 	gui.set_enabled(self.highlight, false)
 	gui.set_color(self.highlight, vmath.vector4(0.3,0.5,0.7,0.5))
@@ -444,6 +448,7 @@ function RichInput.init(self, template, nodes)
 
 	self.pivot = self.input.pivot
 	gui.set_pivot(self.highlight, self.pivot)
+	gui.set_pivot(self.placeholder, self.pivot)
 
 	if self.input.is_multiline then
 		self.input.text.adjust_type = const.TEXT_ADJUST.NO_ADJUST
@@ -459,7 +464,8 @@ end
 -- @tparam RichInput self @{RichInput}
 -- @tparam string placeholder_text The placeholder text
 function RichInput.set_placeholder(self, placeholder_text)
-	self.placeholder:set_to(placeholder_text)
+	--self.placeholder:set_to(placeholder_text)
+	gui.set_text(self.placeholder, placeholder_text)	
 	return self
 end
 

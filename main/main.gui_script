@@ -15,6 +15,7 @@ function init(self)
 	self.text_input2 = druid_instance:new(rich_input, "simple_template")
 	
 	self.text_input3 = druid_instance:new(rich_input, nil, {button = gui.get_node("box_01"), input_text = gui.get_node("text_01")})
+	self.text_input3:set_placeholder("Placeholder text")
 	self.text_input3.input:set_style(text_input_field_style)
 	self.text_input3.input.style.NO_CONSUME_INPUT_WHILE_SELECTED = true
 	self.text_input3.input.style.SKIP_INPUT_KEYS = true
