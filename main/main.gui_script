@@ -1,16 +1,24 @@
 local druid = require("druid.druid")
 local input = require("druid.extended.input")
 local rich_input = require("druid.custom.rich_input.rich_input")
+local text_input_field_style = require("druid_styles.buttons.no_scale_style")
 
 local druid_instance
 
 function init(self)	
+	msg.post(".", "acquire_input_focus")
 	druid_instance = druid.new(self)
-	druid.register("input", input)
+	druid.register("input", input)	
+
+	--self.text_input1 = druid_instance:new(rich_input, "full_template")
+
+	self.text_input2 = druid_instance:new(rich_input, "simple_template")
 	
 	self.text_input3 = druid_instance:new(rich_input, nil, {button = gui.get_node("box_01"), input_text = gui.get_node("text_01")})
-	self.text_input2 = druid_instance:new(rich_input, "simple_template")
-	self.text_input1 = druid_instance:new(rich_input, "full_template")
+	self.text_input3.input:set_style(text_input_field_style)
+	self.text_input3.input.style.NO_CONSUME_INPUT_WHILE_SELECTED = true
+	self.text_input3.input.style.SKIP_INPUT_KEYS = true
+	self.text_input3.input.style.IS_LONGTAP_ERASE = false
 end
 
 function final(self)

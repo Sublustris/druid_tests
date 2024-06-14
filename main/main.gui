@@ -12,7 +12,7 @@ background_color {
 nodes {
   position {
     x: 341.0
-    y: 204.0
+    y: 215.0
     z: 0.0
     w: 1.0
   }
@@ -30,7 +30,7 @@ nodes {
   }
   size {
     x: 250.0
-    y: 40.0
+    y: 200.0
     z: 0.0
     w: 1.0
   }
@@ -69,8 +69,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: 0.0
+    x: -125.0
+    y: 101.0
     z: 0.0
     w: 1.0
   }
@@ -88,7 +88,7 @@ nodes {
   }
   size {
     x: 250.0
-    y: 40.0
+    y: 200.0
     z: 0.0
     w: 1.0
   }
@@ -105,7 +105,7 @@ nodes {
   id: "text_01"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  pivot: PIVOT_NW
   outline {
     x: 1.0
     y: 1.0
@@ -119,7 +119,7 @@ nodes {
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
-  line_break: false
+  line_break: true
   parent: "box_01"
   layer: ""
   inherit_alpha: true
@@ -137,7 +137,7 @@ nodes {
 nodes {
   position {
     x: 343.0
-    y: 372.0
+    y: 419.0
     z: 0.0
     w: 1.0
   }
@@ -614,8 +614,8 @@ nodes {
 }
 nodes {
   position {
-    x: 237.0
-    y: 136.0
+    x: 340.0
+    y: 67.0
     z: 0.0
     w: 1.0
   }
@@ -633,7 +633,7 @@ nodes {
   }
   size {
     x: 200.0
-    y: 100.0
+    y: 40.0
     z: 0.0
     w: 1.0
   }
@@ -650,7 +650,7 @@ nodes {
   id: "bare_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_NW
+  pivot: PIVOT_CENTER
   outline {
     x: 1.0
     y: 1.0
@@ -681,7 +681,7 @@ nodes {
 nodes {
   position {
     x: 341.0
-    y: 289.0
+    y: 351.0
     z: 0.0
     w: 1.0
   }
@@ -889,13 +889,14 @@ nodes {
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
-  line_break: false
+  line_break: true
   parent: "simple_template/button"
   layer: ""
   inherit_alpha: false
   alpha: 1.0
   outline_alpha: 0.0
   shadow_alpha: 0.0
+  overridden_fields: 18
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0

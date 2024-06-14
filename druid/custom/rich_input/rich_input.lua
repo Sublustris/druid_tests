@@ -27,12 +27,12 @@ local utf8 = require("druid.system.utf8")
 local RichInput = component.create("druid.rich_input")
 
 local SCHEME = {
-	--ROOT = "root",
+	ROOT = "root",
 	BUTTON = "button",
-	--PLACEHOLDER = "placeholder_text",
+	PLACEHOLDER = "placeholder_text",
 	INPUT = "input_text",
-	--CURSOR = "cursor_node",
-	--HIGHLIGHT = "highlight_node",
+	CURSOR = "cursor_node",
+	HIGHLIGHT = "highlight_node",
 }
 
 local function find_cursor_pos(self, pivot, full_text, touch_delta_x, touch_delta_y, cur_letter_index)
@@ -467,7 +467,7 @@ end
 function RichInput.on_input(self, action_id, action)
 	self.action_pos_x = action.screen_x
 	self.action_pos_y = action.screen_y
-	
+
 	if gui.is_enabled(self.highlight) then
 		if action_id == const.ACTION_BACKSPACE or action_id == const.ACTION_DEL  then
 			clear_text(self)
@@ -494,6 +494,7 @@ function RichInput.on_input(self, action_id, action)
 		if action_id == const.ACTION_BACKSPACE  then
 			if self.input.cursor_letter_index > 0 and gui.is_enabled(self.cursor) and (action.pressed or action.repeated)  then 
 				local text = self.input:get_text()
+				--[[
 				local deleting_symbol = utf8.sub(text, self.input.cursor_letter_index,  self.input.cursor_letter_index)
 				if deleting_symbol ~= "\n" then  --игорёк удаляе обычную буковку
 					local new_text = utf8.sub(text, 1, self.input.cursor_letter_index-1) .. utf8.sub(text, self.input.cursor_letter_index +1 ) 
@@ -504,7 +505,14 @@ function RichInput.on_input(self, action_id, action)
 					self.input.cursor_letter_index = self.input.cursor_letter_index -2
 					self.input:set_text(new_text)
 				end
+				--]]
 				--print ("qq2d", deleting_symbol)
+
+				--нахуй эти излишества, сделаем по простому..
+				local new_text = utf8.sub(text, 1, self.input.cursor_letter_index-1) .. utf8.sub(text, self.input.cursor_letter_index +1 ) 
+				self.input.cursor_letter_index = self.input.cursor_letter_index -1
+				self.input:set_text(new_text)
+				
 			end
 			--return true  --закомментил, ибо сранно себя ведёт
 		end
